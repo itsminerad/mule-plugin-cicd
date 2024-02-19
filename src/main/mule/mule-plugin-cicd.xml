@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="56a6882a-caa6-42d2-879c-d36e21d9e466" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-plugin-cicdFlow" doc:id="1e02f39e-59b1-43b3-bb6b-0c943c485921" >
+		<http:listener doc:name="Listener" doc:id="bd1656c9-47fc-4eb0-ae48-65060aa816f2" config-ref="HTTP_Listener_config" path="/maven"/>
+		<set-payload value='#["Welcome to Mulesoft deployment to Cloud Hub using Mule Maven Plugin"]' doc:name="Set Payload" doc:id="701331bc-7c93-48a1-961e-a76b876da3b4" />
+	</flow>
+</mule>
